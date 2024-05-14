@@ -1,11 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using MoneyTracker.Context;
+using MoneyTracker.Repositories.Interfaces;
+using MoneyTracker.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
          options.UseSqlServer(connection));
+
+builder.Services.AddTransient<IExpenseRepository, ExpenseRepository>();
+builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
