@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MoneyTracker.Models;
@@ -32,7 +33,11 @@ public class Expense
     [Display(Name = "Payment Date")]
     public DateTime? Payment { get; set; }
     public int CategoryId { get; set; }
+
     public virtual Category? Category { get; set; }
+
+    public string? UserId { get; set; }
+    public virtual IdentityUser? User { get; set; }
 
     [DataType(DataType.DateTime)]
     public DateTime CreatedAt { get; set; } = DateTime.Now;

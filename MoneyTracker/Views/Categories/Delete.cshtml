@@ -1,0 +1,30 @@
+﻿@model MoneyTracker.Models.Category
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2 class="mt-4">Delete category</h2>
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CategoryId" />
+        <input type="submit" value="Delete" class="btn btn-dark mt-2 me-2" /> |
+        <a asp-action="Index" class="btn btn-outline-dark mt-2">Back to List</a>
+    </form>
+</div>
