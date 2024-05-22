@@ -10,7 +10,7 @@ public class Expense
     public int ExpenseId { get; set; }
 
     [Required(ErrorMessage = "This field is required.")]
-    [StringLength(100, MinimumLength = 10, ErrorMessage = "The {0} must have at least {2} characters and the maximum length is {1} characters.")]
+    [StringLength(100, MinimumLength = 3, ErrorMessage = "The {0} must have at least {2} characters and the maximum length is {1} characters.")]
     [Display(Name = "Expense")]
     public string? Name { get; set; }
 

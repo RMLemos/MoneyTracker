@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -18,9 +22,16 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <a class="nav-link text-light" asp-area="" asp-controller="Expenses" asp-action="Index">Expenses</a>
-                    <a class="nav-link text-light" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
-                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a class="nav-link text-light" asp-area="" asp-controller="ReportExpenses" asp-action="Index">Report Expenses</a>
+                        <a class="nav-link text-light" asp-area="" asp-controller="Expenses" asp-action="Index">Expenses</a>
+                        <a class="nav-link text-light" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
+                    }
+                    else
+                    {
+                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    }
                     @await Html.PartialAsync("_LoginPartial")
                 </div>
             </div>
@@ -35,7 +46,7 @@
 
     <footer class="border-top footer text-muted" style="background-color: #5D1421;">
         <div class="container text-center">
-            &copy; @DateTime.Now.Year - MoneyTracker - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; @DateTime.Now.Year - MoneyTracker - <a asp-area="" asp-controller="Home" asp-action="Privacy" class="links">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
