@@ -4,7 +4,7 @@
 This project is a functional application in C# and .Net8 MVC. With this application we can add our expenses, update and/or delete them,  as well as the categories in which the products fall. In addition, you can also access a report ofthe expenses.
 
 ### Money Tracker Main Page
-![Money Tracker main Image](MoneyTracker/wwwroot/images/Home.png)
+![Money Tracker main Image](MoneyTracker/wwwroot/images/homepage.png)
 
 ###  Money Tracker all categories Page
 ![Money Tracker all categories page Image](/MoneyTracker/wwwroot/images/categoriespage.png)
